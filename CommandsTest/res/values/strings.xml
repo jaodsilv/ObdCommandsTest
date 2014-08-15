@@ -1,0 +1,27 @@
+<resources>
+
+    <string name="app_name">Commands Test</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="defaultDate">1/1/1990</string>
+    <string name="mobile_data">2G/3G/4G</string>
+    <string name="cancel">Cancelar</string>
+    <string name="average_speed">Velocidade (km/h)</string>
+    <string name="incompatibleDevice">Dispositivo não compatível</string>
+    <string name="tryAnotherPhone">Tente de outro aparelho que possua bluetooth</string>
+    <string name="noBluetooth">Adaptador bluetooth não encontrado</string>
+    <string name="bluetoothAdapterIsOff">Adaptador bluetooth encontra-se desligado</string>
+    <string name="wish_to_turnOn">Gostaria de Ligá-lo?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="gps_off">O GPS encontra-se desligado</string>
+    <string name="noAdapterBounded">Nenhum dispositivo pareado</string>
+    <string name="wish_to_pair">Gostaria de parear?</string>
+    <string name="noDeviceConnected">Nenhum dispositivo conectado</string>
+
+    <string-array name="empty_array"></string-array>
+
+</resources>

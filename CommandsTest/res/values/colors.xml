@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="drivedata_orange">#ffb410</color>
+    <color name="drivedata_dark_gray">#333</color>
+    <color name="drivedata_light_gray">#ffe8e8e8</color>
+    <color name="drivedata_gray">#ffaaaaaa</color>
+    <color name="black">#000</color>
+</resources>

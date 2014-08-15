@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="score_icon">Score Icon</string>
+    <string name="speed_icon">Speed Icon</string>
+    <string name="hard_breaks_icon">Hard Breaks Icon</string>
+    <string name="time_icon">Time Icon</string>
+    <string name="km_icon">Km Icon</string>
+</resources>
