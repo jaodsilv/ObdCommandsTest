@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        android:text="@string/noAdapterBounded"
+        android:text="@string/no_adapter_bounded"
         android:textColor="@android:color/white"
         android:textSize="21dp" />
 

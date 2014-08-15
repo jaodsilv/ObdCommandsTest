@@ -1,8 +1,0 @@
-<resources>
-
-    <string name="baseurl">http://179.99.205.193:8383/drivedata-ws/rest</string>
-    <string name="SEND_DATA">Enviar Dados</string>
-    <string name="no_connection_found">Conexão não encontrada</string>
-    <string name="wifi">Wi-Fi</string>
-    <string name="wish_to_connect">Deseja Conectar-se?</string>
-</resources>

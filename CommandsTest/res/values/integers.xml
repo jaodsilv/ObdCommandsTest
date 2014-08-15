@@ -1,4 +1,5 @@
 <resources>
     <integer name="toast_duration_long">3000</integer>
     <integer name="fade_duration">1000</integer>
+    <integer name="number_of_commands">161</integer>
 </resources>

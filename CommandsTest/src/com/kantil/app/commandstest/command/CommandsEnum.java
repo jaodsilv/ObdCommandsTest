@@ -1,12 +1,11 @@
 package com.kantil.app.commandstest.command;
 
-public enum Comando {
+public enum CommandsEnum {
 
-	Code0100("0100", 4, "PIDs supported [01 - 20]"), Code0101(
-			"0101",
-			4,
-			"Monitor status since DTCs cleared."), Code0102(
-			"0102", 2, "Freeze DTC"), Code0103("0103", 2, "Fuel system status"), Code0104(
+	// List extracted from http://en.wikipedia.org/wiki/OBD-II_PIDs
+	Code0100("0100", 4, "PIDs supported [01 - 20]"), Code0101("0101", 4,
+			"Monitor status since DTCs cleared."), Code0102("0102", 2,
+			"Freeze DTC"), Code0103("0103", 2, "Fuel system status"), Code0104(
 			"0104", 1, "Calculated engine load value", 0, 100, "%", "A*100/255"), Code0105(
 			"0105", 1, "Engine coolant temperature", -40, 215, "°C", "A-40"), Code0106(
 			"0106", 1, "Short term fuel % trim—Bank 1", -100, 99.22, "%",
@@ -271,61 +270,61 @@ public enum Comando {
 			"In-use performance tracking for compression ignition vehicles",
 			"5 messages, each one containing 4 bytes (two values).");
 
-	private Comando(String codigo, int dataBytes, String descricao) {
-		this.codigo = codigo;
-		this.descricao = descricao;
+	private CommandsEnum(String code, int dataBytes, String description) {
+		this.code = code;
+		this.description = description;
 		this.dataBytes = dataBytes;
 		this.min = 0;
 		this.max = 0;
-		this.unidade = "";
+		this.unit = "";
 		this.formula = "";
 	}
 
-	private Comando(String codigo, int dataBytes, String descricao, double min,
-			double max, String unidade, String formula) {
-		this.codigo = codigo;
-		this.descricao = descricao;
+	private CommandsEnum(String codigo, int dataBytes, String descricao,
+			double min, double max, String unidade, String formula) {
+		this.code = codigo;
+		this.description = descricao;
 		this.dataBytes = dataBytes;
 		this.min = min;
 		this.max = max;
-		this.unidade = unidade;
+		this.unit = unidade;
 		this.formula = formula;
 	}
 
-	private Comando(String codigo, int dataBytes, String descricao,
+	private CommandsEnum(String codigo, int dataBytes, String descricao,
 			String formula) {
-		this.codigo = codigo;
-		this.descricao = descricao;
+		this.code = codigo;
+		this.description = descricao;
 		this.dataBytes = dataBytes;
 		this.min = 0;
 		this.max = 0;
-		this.unidade = "";
+		this.unit = "";
 		this.formula = formula;
 	}
 
-	private String codigo;
-	private String descricao;
-	private boolean responde;
+	private String code;
+	private String description;
+	private boolean avaible;
 	private String result;
 	private int dataBytes;
 	private double min;
 	private double max;
-	private String unidade;
+	private String unit;
 	private String formula;
 
 	/**
 	 * @return the responde
 	 */
-	public boolean isResponde() {
-		return responde;
+	public boolean isAvaible() {
+		return avaible;
 	}
 
 	/**
-	 * @param responde
+	 * @param answer
 	 *            the responde to set
 	 */
-	public void setResponde(boolean responde) {
-		this.responde = responde;
+	public void setAnswer(boolean answer) {
+		this.avaible = answer;
 	}
 
 	/**
@@ -346,15 +345,15 @@ public enum Comando {
 	/**
 	 * @return the codigo
 	 */
-	public String getCodigo() {
-		return codigo;
+	public String getCode() {
+		return code;
 	}
 
 	/**
 	 * @return the descricao
 	 */
-	public String getDescricao() {
-		return descricao;
+	public String getDescription() {
+		return description;
 	}
 
 	/**
@@ -381,8 +380,8 @@ public enum Comando {
 	/**
 	 * @return the unidade
 	 */
-	public String getUnidade() {
-		return unidade;
+	public String getUnit() {
+		return unit;
 	}
 
 	/**

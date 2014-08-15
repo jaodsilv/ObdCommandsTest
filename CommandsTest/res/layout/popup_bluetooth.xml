@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        android:text="@string/bluetoothAdapterIsOff"
+        android:text="@string/bluetooth_adapter_is_off"
         android:textColor="@android:color/white"
         android:textSize="15dp" />
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        android:text="@string/wish_to_turnOn"
+        android:text="@string/wish_to_turn_on"
         android:textColor="@android:color/white"
         android:textSize="31dp" />
 

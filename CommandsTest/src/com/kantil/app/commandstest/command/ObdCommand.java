@@ -83,7 +83,7 @@ public class ObdCommand extends Thread {
 		String res = getResult();
 		String[] ress = res.split("\r");
 		res = ress[0].replace(" ", "");
-		Logger.d("FormatResult", "result" + res);
+		Logger.d("FormatResult", "" + res);
 		return res;
 	}
 

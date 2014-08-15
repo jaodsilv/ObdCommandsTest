@@ -22,7 +22,7 @@
     </style>
 
     <style name="action_bar_background">
-        <item name="android:background">@color/drivedata_orange</item>
+        <item name="android:background">@color/custom_orange</item>
 
 
     </style>
@@ -30,12 +30,12 @@
     <style name="button_style_veiculo" parent="@android:style/Widget.Button">
         <item name="android:textSize">@dimen/veiculo_list_button_text_size</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/total_black</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">300dp</item>
         <item name="android:layout_marginTop">25dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowColor">@color/total_black</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">0.6</item>

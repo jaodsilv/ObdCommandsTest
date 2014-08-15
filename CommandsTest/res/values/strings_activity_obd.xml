@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="command_list">Choose a command</string>
     <string name="service_started">OBD connection has started.</string>
     <string name="service_stopped">OBD connection has stopped.</string>
     <string name="notification_label">Tap to open OBD-Reader.</string>
-    <string name="default_score">0</string>
-    <string name="default_start_time">00:00</string>
-    <string name="default_seconds_start_time">:00</string>
-    <string name="default_start_hm">.0</string>
-    <string name="default_start_km">0</string>
+    <string name="test_commands">Test Commands</string>
     
 </resources>
