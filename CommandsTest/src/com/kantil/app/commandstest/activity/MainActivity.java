@@ -14,12 +14,16 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TableLayout;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.kantil.app.commandstest.R;
 import com.kantil.app.commandstest.asyncTask.RunCommandsTask;
 
 public class MainActivity extends Activity {
 
 	private TableLayout table;
+	private AdView adView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,9 @@ public class MainActivity extends Activity {
 
 		table = (TableLayout) findViewById(R.id.table);
 		table.setHorizontalScrollBarEnabled(true);
+		adView = new AdView(this);
+		adView.setAdUnitId("ca-app-pub-0405505984373789/2498190018");
+		adView.setAdSize(AdSize.BANNER);
 
 		((Button) findViewById(R.id.tryAgain))
 				.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +42,11 @@ public class MainActivity extends Activity {
 						collectData();
 					}
 				});
+
+		LinearLayout layout = (LinearLayout) findViewById(R.id.mainLayout);
+		layout.addView(adView);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		adView.loadAd(adRequest);
 	}
 
 	public void collectData() {
@@ -96,4 +108,21 @@ public class MainActivity extends Activity {
 		popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
 	}
 
+	@Override
+	public void onPause() {
+		adView.pause();
+		super.onPause();
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		adView.resume();
+	}
+
+	@Override
+	public void onDestroy() {
+		adView.destroy();
+		super.onDestroy();
+	}
 }
