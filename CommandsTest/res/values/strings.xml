@@ -26,9 +26,9 @@
     <string-array name="empty_array"></string-array>
 
     <string name="testing_data">Testing Data</string>
-
     <string name="please_wait">Please wait</string>
-
     <string name="failed_connecting_obd_device">Failed connecting OBD device</string>
+    <string name="_commands_found">" commands found"</string>
+    <string name="testing_command_">"Testing command "</string>
 
 </resources>

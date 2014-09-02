@@ -14,7 +14,10 @@ import android.bluetooth.BluetoothSocket;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.view.Gravity;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -143,10 +146,17 @@ public class RunCommandsTask extends AsyncTask<Void, CommandsEnum, Integer> {
 					row.setLayoutParams(lp);
 					TextView t = new TextView(activity);
 					t.setText(R.string.description);
+					t.setTextSize(25);
+					t.setTypeface(null, Typeface.BOLD);
 					row.addView(t, 0);
 					t = new TextView(activity);
 					t.setText(R.string.code);
+					t.setTextSize(25);
+					t.setTypeface(null, Typeface.BOLD);
+					t.setGravity(Gravity.RIGHT);
 					row.addView(t, 1);
+					row.setDividerDrawable((Drawable) activity.getResources()
+							.getDrawable(R.drawable.divider));
 					publishProgress((CommandsEnum[]) null);
 
 					for (CommandsEnum c : CommandsEnum.values()) {
@@ -164,6 +174,8 @@ public class RunCommandsTask extends AsyncTask<Void, CommandsEnum, Integer> {
 							TextView codigo = new TextView(activity);
 							codigo.setTextColor(Color.BLACK);
 							codigo.setText(c.getCode());
+							codigo.setWidth(70);
+							t.setGravity(Gravity.RIGHT);
 
 							row = new TableRow(activity);
 							lp = new TableRow.LayoutParams(
@@ -200,41 +212,54 @@ public class RunCommandsTask extends AsyncTask<Void, CommandsEnum, Integer> {
 			table.addView(row, i++);
 		else {
 			dialog.incrementProgressBy(1);
-			dialog.setMessage("Testing command " + values[0].getDescription());
+			dialog.setMessage(activity.getString(R.string.testing_command_)
+					+ values[0].getDescription());
 		}
 	}
 
 	@Override
 	protected void onPostExecute(Integer result) {
 		dialog.dismiss();
-		switch (result) {
-		case noBluetoothAdapterError:
-			Toast.makeText(activity, activity.getString(R.string.no_bluetooth),
-					Toast.LENGTH_LONG).show();
-			Toast.makeText(activity,
-					activity.getString(R.string.incompatible_device),
-					Toast.LENGTH_LONG).show();
-			Toast.makeText(activity,
-					activity.getString(R.string.try_another_phone),
-					Toast.LENGTH_LONG).show();
-			break;
-		case bluetoothAdapterOff:
-			activity.bluetoothTurnOnView();
-			Toast.makeText(activity, R.string.try_again, Toast.LENGTH_LONG)
-					.show();
-			break;
-		case noPairedOBDDevice:
-			activity.bluetoothPairDeviceView();
-			Toast.makeText(activity, R.string.try_again, Toast.LENGTH_LONG)
-					.show();
-			break;
-		case failureConnectingDevice:
-			Toast.makeText(activity, R.string.failed_connecting_obd_device,
-					Toast.LENGTH_LONG).show();
-			Toast.makeText(activity, R.string.try_again, Toast.LENGTH_LONG)
-					.show();
-			break;
+		if (!cancel) {
+			switch (result) {
+			case noBluetoothAdapterError:
+				Toast.makeText(activity,
+						activity.getString(R.string.no_bluetooth),
+						Toast.LENGTH_LONG).show();
+				Toast.makeText(activity,
+						activity.getString(R.string.incompatible_device),
+						Toast.LENGTH_LONG).show();
+				Toast.makeText(activity,
+						activity.getString(R.string.try_another_phone),
+						Toast.LENGTH_LONG).show();
+				break;
+			case bluetoothAdapterOff:
+				activity.bluetoothTurnOnView();
+				Toast.makeText(activity, R.string.try_again, Toast.LENGTH_LONG)
+						.show();
+				break;
+			case noPairedOBDDevice:
+				activity.bluetoothPairDeviceView();
+				Toast.makeText(activity, R.string.try_again, Toast.LENGTH_LONG)
+						.show();
+				break;
+			case failureConnectingDevice:
+				Toast.makeText(activity, R.string.failed_connecting_obd_device,
+						Toast.LENGTH_LONG).show();
+				Toast.makeText(activity, R.string.try_again, Toast.LENGTH_LONG)
+						.show();
+				break;
+			case success:
+				Toast.makeText(activity,
+						(i - 1) + activity.getString(R.string._commands_found),
+						Toast.LENGTH_LONG).show();
+				break;
 
+			}
+		} else {
+			Toast.makeText(activity,
+					(i - 1) + activity.getString(R.string._commands_found),
+					Toast.LENGTH_LONG).show();
 		}
 	}
 

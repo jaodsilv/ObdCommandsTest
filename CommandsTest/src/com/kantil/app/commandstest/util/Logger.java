@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Date;
 
 import android.os.Environment;
+import android.text.format.Time;
 import android.util.Log;
 
 public class Logger {
@@ -19,7 +20,7 @@ public class Logger {
 
 	public static final String LOGFILEDIR = Environment
 			.getExternalStorageDirectory() + "/CT/";
-	public static final String LOGFILE = LOGFILEDIR + "logfile";
+	public static final String LOGFILE = LOGFILEDIR + "logfile." + Time.getCurrentTimezone();
 
 	public static void w(String tag, String text) {
 		log(WARNING, tag, text);
